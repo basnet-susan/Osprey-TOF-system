@@ -2,17 +2,6 @@
 """
 offboard_vfh_velocity_vector.py
 
-– Subscribes to /vfh_desired_yaw (Float32, in NED radians).
-– Takes off to a fixed altitude.
-– Once in “forward” phase, it:
-    • Leaves the drone’s yaw at whatever it currently is.
-    • Builds a velocity vector (vx, vy) = speed * [cos(ψ_des), sin(ψ_des)]
-      (ψ_des is the VFH‐computed yaw in NED), and sends that as a BODY‐FRAME
-      velocity (converted into NED‐frame for PX4) so the drone “moves in that
-      direction” without ever rotating.
-– Adds a distance‐to‐goal check so that, once within goal_threshold, it
-  switches to “hover” phase and continuously sends position+yaw setpoints
-  to hold the current location.
 """
 
 import rclpy
